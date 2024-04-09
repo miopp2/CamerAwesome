@@ -334,7 +334,6 @@ class PigeonSensorTypeDevice {
   static PigeonSensorTypeDevice decode(Object result) {
     result as List<Object?>;
     return PigeonSensorTypeDevice(
-      // TODO: Find out where is failing
       sensorType: PigeonSensorType.values[result[0]! as int],
       name: result[1]! as String,
       iso: result[2]! as double,
@@ -710,7 +709,6 @@ class _CameraInterfaceCodec extends StandardMessageCodec {
       case 132:
         return PigeonSensor.decode(readValue(buffer)!);
       case 133:
-        // TODO: Find where index error occurs
         return PigeonSensorTypeDevice.decode(readValue(buffer)!);
       case 134:
         return PreviewSize.decode(readValue(buffer)!);

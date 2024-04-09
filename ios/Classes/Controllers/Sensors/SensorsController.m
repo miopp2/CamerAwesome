@@ -7,13 +7,14 @@
 
 #import "SensorsController.h"
 #import "Pigeon.h"
+#import <ARKit/ARKit.h>
 
 @implementation SensorsController
 
 + (NSArray *)getSensors:(AVCaptureDevicePosition)position {
   NSMutableArray *sensors = [NSMutableArray new];
   
-  NSArray *sensorsType = @[AVCaptureDeviceTypeBuiltInWideAngleCamera, AVCaptureDeviceTypeBuiltInTelephotoCamera, AVCaptureDeviceTypeBuiltInUltraWideCamera, AVCaptureDeviceTypeBuiltInTrueDepthCamera];
+  NSArray *sensorsType = @[AVCaptureDeviceTypeBuiltInWideAngleCamera, AVCaptureDeviceTypeBuiltInTelephotoCamera, AVCaptureDeviceTypeBuiltInUltraWideCamera, AVCaptureDeviceTypeBuiltInTrueDepthCamera, AVCaptureDeviceTypeBuiltInLiDARDepthCamera];
   
   AVCaptureDeviceDiscoverySession *discoverySession = [AVCaptureDeviceDiscoverySession
                                                        discoverySessionWithDeviceTypes:sensorsType
@@ -30,8 +31,14 @@
       type = PigeonSensorTypeTrueDepth;
     } else if (device.deviceType == AVCaptureDeviceTypeBuiltInWideAngleCamera) {
       type = PigeonSensorTypeWideAngle;
+    } else if (@available(iOS 15.4, *)) {
+        if (device.deviceType == AVCaptureDeviceTypeBuiltInLiDARDepthCamera) {
+            type = PigeonSensorTypeLidar;
+        } else {
+            type = PigeonSensorTypeUnknown;
+        }
     } else {
-      type = PigeonSensorTypeUnknown;
+        type = PigeonSensorTypeUnknown;
     }
     
     PigeonSensorTypeDevice *sensorType = [PigeonSensorTypeDevice makeWithSensorType:type name:device.localizedName iso:[NSNumber numberWithFloat:device.ISO] flashAvailable:[NSNumber numberWithBool:device.flashAvailable] uid:device.uniqueID];

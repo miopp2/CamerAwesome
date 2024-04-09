@@ -72,7 +72,7 @@ typedef NS_ENUM(NSUInteger, PigeonSensorType) {
   ///
   /// iOS only
   PigeonSensorTypeTrueDepth = 3,
-  PigeonSensorTypeUnknown = 4,
+  PigeonSensorTypeLidar = 4,
 };
 
 typedef NS_ENUM(NSUInteger, CamerAwesomePermission) {

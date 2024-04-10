@@ -102,7 +102,7 @@ class CameraPage extends StatelessWidget {
             exifPreferences: ExifPreferences(saveGPSLocation: true),
           ),
           sensorConfig: SensorConfig.single(
-            sensor: Sensor.position(SensorPosition.back),
+            sensor: Sensor.type(SensorType.lidar),
             flashMode: FlashMode.auto,
             aspectRatio: CameraAspectRatios.ratio_4_3,
             zoom: 0.0,

@@ -461,6 +461,12 @@ class CamerawesomePlugin {
             )
             .toList()
             .firstOrNull,
+        lidar: backSensorsData
+          .where(
+            (element) => element.sensorType == SensorType.lidar,
+        )
+        .toList()
+        .firstOrNull,
         trueDepth: frontSensorsData
             .where(
               (element) => element.sensorType == SensorType.trueDepth,

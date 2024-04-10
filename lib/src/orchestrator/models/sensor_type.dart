@@ -14,7 +14,7 @@ enum SensorType {
   ///
   /// iOS only
   trueDepth,
-
+  lidar,
   unknown;
 
   SensorType get defaultSensorType => SensorType.wideAngle;
@@ -67,12 +67,14 @@ class SensorDeviceData {
   ///
   /// iOS only
   SensorTypeDevice? trueDepth;
+  SensorTypeDevice? lidar;
 
   SensorDeviceData({
     this.wideAngle,
     this.ultraWideAngle,
     this.telephoto,
     this.trueDepth,
+    this.lidar,
   });
 
   List<SensorTypeDevice> get availableSensors {
@@ -81,6 +83,7 @@ class SensorDeviceData {
       ultraWideAngle,
       telephoto,
       trueDepth,
+      lidar,
     ].where((element) => element != null).cast<SensorTypeDevice>().toList();
   }
 
@@ -88,6 +91,7 @@ class SensorDeviceData {
         wideAngle,
         ultraWideAngle,
         telephoto,
+        lidar,
       ].where((element) => element != null).length;
 
   int get availableFrontSensors => [

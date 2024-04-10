@@ -109,6 +109,15 @@ class _AwesomeSensorTypeSelectorState extends State<AwesomeSensorTypeSelector> {
                           _sensorDeviceData!.telephoto!.uid);
                     },
                   ),
+                if (_sensorDeviceData?.lidar != null)
+                  _SensorTypeButton(
+                    sensorType: SensorType.lidar,
+                    isSelected: snapshot.data == SensorType.lidar,
+                    onTap: () {
+                      widget.state.setSensorType(0, SensorType.lidar,
+                          _sensorDeviceData!.lidar!.uid);
+                    },
+                  ),
                 // Text(snapshot.data.toString()),
               ],
             ),

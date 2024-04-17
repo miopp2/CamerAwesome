@@ -311,7 +311,7 @@
   NSArray<AVCaptureDevice *> *devices = [[NSArray alloc] init];
   AVCaptureDeviceDiscoverySession *discoverySession = [AVCaptureDeviceDiscoverySession discoverySessionWithDeviceTypes:@[ AVCaptureDeviceTypeBuiltInWideAngleCamera, AVCaptureDeviceTypeBuiltInTelephotoCamera, AVCaptureDeviceTypeBuiltInUltraWideCamera, ]
                                                                                                              mediaType:AVMediaTypeVideo
-                                                                                                              position:AVCaptureDevicePositionUnspecified];
+                                                                                                              position:AVCaptureDevicePositionBack];
   devices = discoverySession.devices;
   
   for (AVCaptureDevice *device in devices) {

@@ -75,6 +75,7 @@ class CameraContext {
     var preparingState = PreparingCameraState(
       this,
       initialCaptureMode,
+      onPermissionsResult: onPermissionsResult,
     );
     stateController = BehaviorSubject.seeded(preparingState);
     filterSelectorOpened = BehaviorSubject.seeded(false);

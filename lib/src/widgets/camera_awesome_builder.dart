@@ -409,6 +409,7 @@ class _CameraWidgetBuilder extends State<CameraAwesomeBuilder>
       exifPreferences: widget.saveConfig?.exifPreferences ??
           ExifPreferences(saveGPSLocation: false),
       availableFilters: widget.availableFilters,
+      onPermissionsResult: widget.onPermissionsResult,
     );
 
     // Initial CameraState is always PreparingState

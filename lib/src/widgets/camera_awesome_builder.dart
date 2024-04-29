@@ -118,6 +118,8 @@ class CameraAwesomeBuilder extends StatefulWidget {
   /// You can use it to do whatever you want once a media has been saved
   final OnMediaCaptureEvent? onMediaCaptureEvent;
 
+  final OnPermissionsResult? onPermissionsResult;
+
   const CameraAwesomeBuilder._({
     required this.sensorConfig,
     required this.enablePhysicalButton,
@@ -139,6 +141,7 @@ class CameraAwesomeBuilder extends StatefulWidget {
     required this.pictureInPictureConfigBuilder,
     this.availableFilters,
     this.onMediaCaptureEvent,
+    this.onPermissionsResult
   });
 
   /// Use the camera with the built-in interface.
@@ -239,6 +242,7 @@ class CameraAwesomeBuilder extends StatefulWidget {
     PictureInPictureConfigBuilder? pictureInPictureConfigBuilder,
     List<AwesomeFilter>? filters,
     OnMediaCaptureEvent? onMediaCaptureEvent,
+    OnPermissionsResult? onPermissionsResult,
   }) : this._(
           sensorConfig: sensorConfig ??
               SensorConfig.single(
@@ -262,6 +266,7 @@ class CameraAwesomeBuilder extends StatefulWidget {
           pictureInPictureConfigBuilder: pictureInPictureConfigBuilder,
           availableFilters: filters,
           onMediaCaptureEvent: onMediaCaptureEvent,
+          onPermissionsResult: onPermissionsResult,
         );
 
   /// Use this constructor when you don't want to take pictures or record videos.
